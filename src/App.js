@@ -1,16 +1,21 @@
-import React, { Component } from 'react';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <h1>Un repetidor</h1>
-        <input type="text" placeholder="Empieza a escribir algo" />
-        <p className="repeater"></p>
-      </div>
-    );
-  }
+function App() {
+  const [text, setText] = useState("");
+
+  return (
+    <div>
+      <h1>Un repetidor</h1>
+      <input
+        value={text}
+        type="text"
+        onChange={(event) => setText(event.target.value)}
+        placeholder="Empieza a escribir algo"
+      />
+      <p className="repeater">{text}</p>
+    </div>
+  );
 }
 
 export default App;
